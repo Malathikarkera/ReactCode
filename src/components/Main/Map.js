@@ -42,7 +42,7 @@ const Map = () => {
       </Map>
     </React.Fragment>
   ) : (
-    <div></div>
+    <div>No </div>
   );
 };
 export default Map;

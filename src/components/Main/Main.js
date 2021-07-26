@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import Country from "../Country/Country.js";
 import { CountryContext } from "../../context/globalState";
 import styles from "./Main.module.css";
+import MapChart from "./MapChart.js";
 
 const Main = () => {
   const { countries } = useContext(CountryContext);
@@ -9,6 +10,24 @@ const Main = () => {
   return countries ? (
     <React.Fragment>
       <main className={styles.main}>
+        <div>
+          <MapChart />
+        </div>
+        <React.Fragment>
+          {/* {countries.map((country) => {
+            return ( */}
+          <iframe
+            width="600"
+            title="googlemap"
+            height="450"
+            loading="lazy"
+            allowfullscreen="true"
+            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBTvHRVXRkSLuWh6NdUJgujTSSVJVjFVP4
+      &q=countries"
+          ></iframe>
+          {/* );
+          })} */}
+        </React.Fragment>
         {countries.map((country) => {
           return (
             <Country

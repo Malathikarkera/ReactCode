@@ -14,7 +14,6 @@ const Home = ({ ...props }) => {
           <FilterButton />
         </div>
         <Main />
-        <Map />
       </div>
     </>
   );
