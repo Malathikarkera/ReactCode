@@ -3,31 +3,24 @@ import Country from "../Country/Country.js";
 import { CountryContext } from "../../context/globalState";
 import styles from "./Main.module.css";
 import MapChart from "./MapChart.js";
+import MapWithMarkers from "./MapWithMarkers.js";
+import { useLoadScript } from "@react-google-maps/api";
 
 const Main = () => {
   const { countries } = useContext(CountryContext);
-
+  const { isLoaded } = useLoadScript({
+    googleMapsApiKey: "AIzaSyBTvHRVXRkSLuWh6NdUJgujTSSVJVjFVP4" // Add your API key
+  });
   return countries ? (
     <React.Fragment>
       <main className={styles.main}>
-        <div>
-          <MapChart />
-        </div>
         <React.Fragment>
-          {/* {countries.map((country) => {
-            return ( */}
-          <iframe
-            width="600"
-            title="googlemap"
-            height="450"
-            loading="lazy"
-            allowfullscreen="true"
-            src="https://www.google.com/maps/embed/v1/search?key=AIzaSyBTvHRVXRkSLuWh6NdUJgujTSSVJVjFVP4
-      &q=countries"
-          ></iframe>
-          {/* );
-          })} */}
+          <div>
+            <MapChart />
+          </div>
         </React.Fragment>
+
+        <React.Fragment>{/* <MapWithMarkers /> */}</React.Fragment>
         {countries.map((country) => {
           return (
             <Country

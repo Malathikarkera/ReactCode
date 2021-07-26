@@ -3,7 +3,6 @@ import VanillaTilt from "vanilla-tilt";
 import styles from "./CountryDetails.module.css";
 import { Link } from "react-router-dom";
 import { useParams, useHistory, Redirect } from "react-router";
-import Navbar from "../../components/Navbar/Navbar";
 import {
   getSpecificCountryFromLocalStorage,
   getFilteredBorderCountries
@@ -36,7 +35,6 @@ const CountryDetails = ({ ...props }) => {
 
   return (
     <div>
-      <Navbar {...props} />
       <section>
         <div className={styles.countryContainer}>
           <button
