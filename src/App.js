@@ -4,9 +4,9 @@ import Dasboard from "./components/dashboard";
 import { CountryContextProvider } from "./context/globalState";
 import useTheme from "./customHooks/useTheme";
 
-// const CountryDetails = React.lazy(() =>
-//   import("../CountryDetails/CountryDetails")
-// );
+const CountryDetails = React.lazy(() =>
+  import("./components/CountryDetails/CountryDetails")
+);
 
 const App = () => {
   const [themeValue, setThemeValue] = useTheme();
@@ -32,6 +32,18 @@ const App = () => {
                   />
                 )}
               />
+              <React.Suspense fallback={<h1>loading countryDetails</h1>}>
+                <Route
+                  path={`/:code`}
+                  render={(props) => (
+                    <CountryDetails
+                      {...props}
+                      themeValue={themeValue}
+                      handleThemeChange={setThemeValue}
+                    />
+                  )}
+                />
+              </React.Suspense>
             </CountryContextProvider>
             <Route
               path={"/"}
